@@ -43,7 +43,27 @@ switch (userType) {
 let isAuthenticated = true;
 let authenticationStatus = isAuthenticated ?  "Authenticated" :"Not Authenticated";
 
+//dietary service
+let person="Employee";
+let userAccessLevel;
+switch(person){
+    case "Employee":
+        userAccessLevel ="Authorized to access Dietary Services";
+        break;
+    case "Enrolled Member":
+        userAccessLevel ="Authorized to access Dietary Services and one-on-one interaction with a dietician";
+        break;
+    case "Subscriber":
+        userAccessLevel ="Authorized to have partial access to facilitate Dietary Services only";
+        break;
+    case "Non-Subscriber":
+        userAccessLevel ="Enroll or at least subscribe first to avail this facility";
+        break;
+}
+
+
 console.log("Access Level:",accessLevel);
 console.log("User Message:",userMessage);
 console.log("User Category:",userCategory)
 console.log("Authentication Status:",authenticationStatus);
+console.log("Dietary Service Access:",userAccessLevel);
