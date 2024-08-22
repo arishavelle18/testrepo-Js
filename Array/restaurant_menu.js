@@ -1,6 +1,6 @@
-const breakfastMenu = ['Pancakes', 'Eggs Benedict', 'Oatmeal', 'Frittata'];
-const mainCourseMenu = ['Steak', 'Pasta', 'Burger', 'Salmon'];
-const dessertMenu = ['Cake', 'Ice Cream', 'Pudding', 'Fruit Salad'];
+const breakfastMenu = ['Pancakes-$12', 'Eggs Benedict-$22.99', 'Oatmeal$21.99', 'Frittata$15'];
+const mainCourseMenu = ['Steak-$12', 'Pasta-$122', 'Burger-$11', 'Salmon-$134'];
+const dessertMenu = ['Cake-$134', 'Ice Cream-$13', 'Pudding-$12', 'Fruit Salad-$1343'];
 
 // yung join kaya meron para maconvert into string
 const breakfastMenuItemsHtml = breakfastMenu.map((item,index) => {
