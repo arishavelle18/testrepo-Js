@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fetch</title>
+</head>
+
+<body>
+
+  <script>
+    const apiUrl = 'https://jsonplaceholder.typicode.com/post/1';
+    fetch(apiUrl)
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        console.log("Data from the API", data);
+      })
+      .catch(error => {
+        console.error("An error occured:", error)
+      })
+  </script>
+</body>
+
+</html>

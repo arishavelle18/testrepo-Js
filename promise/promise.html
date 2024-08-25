@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise</title>
+</head>
+
+<body>
+  <script>
+    // function getUserInfo(userId, callback) {
+    //   setTimeout(() => {
+    //     const userInfo = {
+    //       name: 'John',
+    //       email: "arishavelle19@gmail.com"
+    //     };
+    //     callback(userInfo)
+    //   }, 1000);
+    // }
+
+    // function getUserPosts(userId, callback) {
+    //   setTimeout(() => {
+    //     const posts = ['post1', 'post2', 'post3'];
+    //     callback(posts);
+    //   }, 1500);
+    // }
+
+    // getUserInfo(1, (userInfo) => {
+    //   console.log("User Info:", userInfo);
+    //   getUserPosts(1, (userPosts) => {
+    //     console.log('User Post:', userPosts);
+    //   })
+    // })
+
+    function getUserInfoPromise(userId) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          const userInfo = {
+            name: "John",
+            email: "asdasdasd@gmail.com"
+          };
+          resolve(userInfo);
+        }, 1000);
+      })
+    }
+
+    function getUserPostsPromise(userId) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          const posts = ['post1', 'post2', 'post3'];
+          resolve(posts);
+        }, 1500);
+      })
+    }
+
+    function getUserCommentPromise(userPost) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          const comments = ["asd", "userInf", "aaaaa"];
+          resolve(comments)
+        }, 2000)
+      })
+    }
+    const getInfo = new Promise((resolve, reject) => {
+      resolve(2);
+    });
+
+    getInfo
+      .then((userId) => {
+        console.log("User ID:", userId);
+        return getUserInfoPromise(userId);
+      })
+      .then((userInfo) => {
+        console.log("User info:", userInfo);
+        return getUserPostsPromise(userInfo.userId);
+      })
+      .then((userPosts) => {
+        console.log("User Posts:", userPosts);
+        return getUserCommentPromise(userPosts[0])
+      })
+      .then((userComments) => {
+        console.log("User Commets:", userComments);
+      })
+      .catch((error) => {
+        console.error("An error occurred:", error);
+      });
+  </script>
+</body>
+
+</html>
