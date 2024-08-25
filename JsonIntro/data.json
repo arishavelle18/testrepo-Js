@@ -1,0 +1,22 @@
+[
+  {
+    "title": "title1",
+    "author": "author1",
+    "publicationYear": 1927
+  },
+  {
+    "title": "title2",
+    "author": "author2",
+    "publicationYear": 1927
+  },
+  {
+    "title": "title3",
+    "author": "author3",
+    "publicationYear": 1927
+  },
+  {
+    "title": "title4",
+    "author": "author4",
+    "publicationYear": 1927
+  }
+]

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajax Example</title>
+</head>
+
+<body>
+  <button id="loadUsersBtn">Load Users</button>
+  <div id="userList"></div>
+
+  <script>
+    document.getElementById("loadUsersBtn").addEventListener("click", () => {
+      // apply ajax
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", 'https://jsonplaceholder.typicode.com/users', true)
+      xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 400) {
+          var users = JSON.parse(xhr.responseText);
+          displayUsers(users)
+        } else {
+          console.error("Error fetching data");
+        }
+      }
+      xhr.onerror = function () {
+        console.error("Network Error");
+      }
+      xhr.send();
+    });
+
+    function displayUsers(users) {
+      let userListDiv = document.getElementById("userList");
+      userListDiv.innerHTML = "<h2>User List</h2>";
+      var ul = document.createElement('ul');
+
+      users.forEach(user => {
+        var li = document.createElement("li");
+        li.textContent = user.name;
+        ul.appendChild(li);
+      });
+
+      userListDiv.appendChild(ul);
+    }
+  </script>
+</body>
+
+</html>
